@@ -7,7 +7,7 @@ from bot.utils.qr_generator import make_qr_bytes
 from config import settings
 from bot.utils.telegram_api import Telegram_API
 
-@app.on_message(filters.media)
+@app.on_message(filters.media & filters.private)
 async def handle_file(client: Client, message: Message):
     code = str(uuid.uuid4())
     sent = Telegram_API().copyMessage(
