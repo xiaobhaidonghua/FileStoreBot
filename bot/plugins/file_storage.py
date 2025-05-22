@@ -5,16 +5,25 @@ from bot.client import app
 from bot.database import files_col
 from bot.utils.qr_generator import make_qr_bytes
 from config import settings
-
+from bot.utils.telegram_api import Telegram_API
 
 @app.on_message(filters.media)
 async def handle_file(client: Client, message: Message):
     code = str(uuid.uuid4())
-    sent = await message.copy(chat_id=settings.STORAGE_CHANNEL_ID)
+    sent = Telegram_API().copyMessage(
+        chat_id=settings.STORAGE_CHANNEL_ID,
+        from_chat_id=message.chat.id,
+        message_id=message.id,
+    )
+    if not sent:
+        await message.reply_text(
+            "❌ Failed to store the file. Please try again later."
+        )
+        return
     await files_col.insert_one(
         {
             "uuid": code,
-            "file_msg_id": sent.id,
+            "file_msg_id": sent,
             "user_id": message.from_user.id,
             "file_type": "file",
             "timestamp": time.time(),

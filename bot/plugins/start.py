@@ -4,7 +4,7 @@ from bot.client import app
 from bot.database import files_col
 from bot.utils.stats import is_served_user
 from config import settings
-
+from bot.utils.telegram_api import Telegram_API
 
 @app.on_message(filters.command("start") & filters.private)
 async def start(_, message: Message):
@@ -17,7 +17,7 @@ async def start(_, message: Message):
         if not record:
             await message.reply("❌ File not found or expired.")
             return
-        await app.copy_message(
+        Telegram_API().copyMessage(
             chat_id=message.chat.id,
             from_chat_id=settings.STORAGE_CHANNEL_ID,
             message_id=record["file_msg_id"],
