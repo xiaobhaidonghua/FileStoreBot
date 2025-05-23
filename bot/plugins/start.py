@@ -27,22 +27,17 @@ async def start(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "📢 Updates Channel", url="https://t.me/Private_Bots"
+                        "📢 Updates Channel", url="https://t.me/ongoingdonghuas"
                     ),
                 ]
             ]
         )
         await message.reply_photo(
             photo="start.jpg",
-            caption="<b>👋 Welcome to <u>FileDrawer Bot</u>!</b>\n\n"
-            "🗂️ <b>Store</b> your files securely and access them anytime!\n"
-            "🔲 <b>QRify</b> bot also provides the QR code to share your file.\n"
-            "🔗 <b>Share</b> files with friends using unique links.\n\n"
-            "✨ <b>How to use:</b>\n"
-            "• <b>Send me any file</b> to store it.\n"
-            "• Use <code>/list</code> to see your files.\n"
-            "• Use <code>/delete &lt;FILE_UUID&gt;</code> to remove a file.\n"
-            "• Use <code>/help</code> for all commands.\n\n"
-            "🚀 <i>Start by sending a file now!</i>",
+            caption="<b>👋 Welcome to <u> Bot</u>!</b>\n\n"
+            " 🗂️ <b>This bot is for Storing Files</b> \n\n"
+            "✨ <b> Enjoy:</b>\n"
+            "• <b>Send me any file</b> \n\n"
+            "🚀 <i>Thanks for staring Me</i>",
             reply_markup=board,
         )
