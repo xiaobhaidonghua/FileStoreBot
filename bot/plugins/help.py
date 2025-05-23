@@ -9,7 +9,7 @@ async def help_command(_, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    "📢 Updates Channel", url="https://t.me/Private_Bots"
+                    "📢 Updates Channel", url="https://t.me/ongoingdonghuas"
                 ),
             ]
         ]
