@@ -33,7 +33,7 @@ async def handle_file(client: Client, message: Message):
     link = f"https://t.me/{apper.username}?start={code}"
     try:
         link2 = requests.get(
-            f"https://linkpays.in/api?api=e64b0b252a329c9648740bf059a6cecd3ae4a73f&url={link}"
+            f"https://arolinks.com/api?api=06701b554d49a84b031224c4ac8f88d232d10603&url={link}"
         ).json()["shortenedUrl"]
     except:
         link2 = link
